@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jeecg.modules.exam.mapper.BizSignListMapper">
+
+    <select id="getDayPassNumber" resultType="org.jeecg.modules.exam.entity.StudentPassVo">
+        select
+        b.sign_id,b.score
+        from biz_sign_list as a
+        left join biz_exam_list as b
+        on a.id = b.sign_id
+        where a.create_by = #{userName}
+        and a.create_time &gt;= #{s1}
+        and a.create_time &lt; #{s2}
+
+    </select>
+</mapper>
